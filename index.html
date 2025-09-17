@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ringkasan Sistem Bilangan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--accent1:#6ee7b7;--accent2:#60a5fa;--muted:#94a3b8}
+    *{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{margin:0;background:linear-gradient(180deg,#071028 0%, #071a2a 60%);color:#e6eef8;line-height:1.5}
+    .wrap{max-width:1000px;margin:36px auto;padding:28px}
+    header{display:flex;gap:20px;align-items:center}
+    .logo{width:84px;height:84px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent2),var(--accent1));box-shadow:0 6px 20px rgba(2,6,23,.6)}
+    .logo h1{margin:0;color:#021124;font-size:28px}
+    h1{font-size:28px;margin:0 0 6px}
+    p.lead{color:var(--muted);margin:6px 0 18px}
+    nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+    a.chip{background:rgba(255,255,255,0.04);padding:8px 12px;border-radius:999px;text-decoration:none;color:#cfe8ff;font-weight:600;font-size:13px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;margin:18px 0;box-shadow:0 8px 24px rgba(2,6,23,.45)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    pre{background:#021124;padding:12px;border-radius:8px;overflow:auto;color:#d6f9ff}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:left}
+    .small{font-size:13px;color:var(--muted)}
+    .svg-figure{display:block;margin:12px 0}
+    footer{margin-top:28px;color:var(--muted);font-size:13px}
+    code{background:rgba(255,255,255,.03);padding:2px 6px;border-radius:6px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#021124;font-weight:700;text-decoration:none}
+    @media (max-width:920px){.grid{grid-template-columns:1fr}nav{gap:8px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><h1>Σ</h1></div>
+      <div>
+        <h1>Ringkasan Sistem Bilangan</h1>
+        <p class="lead">Penjelasan lengkap (teori + contoh + tabel + gambar SVG) — siap diunggah ke GitHub / GitHub Pages.</p>
+        <nav>
+          <a class="chip" href="#pengantar">Pengantar</a>
+          <a class="chip" href="#jenis">Jenis</a>
+          <a class="chip" href="#contoh">Contoh</a>
+          <a class="chip" href="#tabel">Tabel</a>
+          <a class="chip" href="#github">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="pengantar" class="card">
+      <h2>Pengantar</h2>
+      <p class="small">Sistem bilangan adalah cara merepresentasikan kuantitas menggunakan simbol dan aturan penulisan. Yang paling umum adalah sistem bilangan basis-10 (desimal). Sistem bilangan berbeda-beda berdasarkan <em>base</em> (atau radix): banyak simbol yang dipakai untuk menyusun nilai.</p>
+      <ul>
+        <li><strong>Base (radix)</strong> = jumlah simbol unik (mis. desimal → 10 simbol: 0..9).</li>
+        <li><strong>Posisi</strong> menentukan bobot: digit di sebelah kiri memiliki bobot lebih besar (basis^posisi).</li>
+      </ul>
+    </section>
+
+    <div class="grid">
+      <main>
+        <section id="jenis" class="card">
+          <h2>Jenis-jenis Sistem Bilangan</h2>
+          <h3>1. Desimal (basis 10)</h3>
+          <p class="small">Simbol: 0,1,...,9. Digunakan sehari-hari.</p>
+
+          <h3>2. Biner (basis 2)</h3>
+          <p class="small">Simbol: 0,1. Sering digunakan di komputer — setiap digit disebut bit.</p>
+
+          <h3>3. Oktal (basis 8)</h3>
+          <p class="small">Simbol: 0..7. Kadang digunakan pada sistem lama atau representasi permission di UNIX.</p>
+
+          <h3>4. Heksadesimal (basis 16)</h3>
+          <p class="small">Simbol: 0..9, A..F (A=10 .. F=15). Berguna untuk menulis nilai byte (mis: warna, alamat memori).</p>
+
+          <h3>5. Bilangan Bulat, Rasional, Irasional, Real, Kompleks</h3>
+          <p class="small">Penjelasan singkat tipe bilangan: <em>Integer</em> (Z), <em>Rational</em> (Q), <em>Irrational</em>, <em>Real</em> (R), <em>Complex</em> (C).</p>
+        </section>
+
+        <section id="contoh" class="card">
+          <h2>Contoh & Konversi</h2>
+          <h3>Contoh: Konversi desimal → biner</h3>
+          <p class="small">Metode: bagi berulang dengan 2, catat sisa; baca sisa dari akhir ke awal.</p>
+          <pre><code>// contoh: 13 (desimal) -> biner
+13 ÷ 2 = 6 sisa 1
+6 ÷ 2 = 3 sisa 0
+3 ÷ 2 = 1 sisa 1
+1 ÷ 2 = 0 sisa 1
+Maka biner = 1101
+</code></pre>
+
+          <div class="svg-figure" aria-hidden>
+            <!-- simple SVG that visualizes the division steps -->
+            <svg width="100%" height="140" viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient>
+              </defs>
+              <rect x="8" y="8" width="884" height="124" rx="12" fill="#021124" stroke="#08324a"/>
+              <text x="28" y="36" fill="#d6f9ff" font-size="16" font-weight="700">Langkah pembagian (13 → 2):</text>
+              <g font-size="14" fill="#cfe8ff">
+                <text x="28" y="64">13 ÷ 2 = 6  sisa 1</text>
+                <text x="28" y="86">6 ÷ 2 = 3   sisa 0</text>
+                <text x="28" y="108">3 ÷ 2 = 1   sisa 1</text>
+                <text x="28" y="130">1 ÷ 2 = 0   sisa 1</text>
+              </g>
+              <text x="520" y="100" fill="url(#g1)" font-size="18" font-weight="800">Hasil biner: 1101</text>
+            </svg>
+          </div>
+
+          <h3>Contoh: Desimal → Heksadesimal</h3>
+          <pre><code>// contoh: 254 (desimal) -> heksadesimal
+254 ÷ 16 = 15 sisa 14 (E)
+15 ÷ 16 = 0 sisa 15 (F)
+Maka heksadesimal = FE
+</code></pre>
+
+          <h3>Contoh: Mengubah biner ke desimal</h3>
+          <pre><code>// contoh: 1011₂ -> ?₁₀
+1011₂ = 1·2³ + 0·2² + 1·2¹ + 1·2⁰ = 8 + 0 + 2 + 1 = 11
+</code></pre>
+
+          <h3>Contoh tipe bilangan</h3>
+          <ul>
+            <li><strong>Integer</strong>: ...,-2,-1,0,1,2,...</li>
+            <li><strong>Rasional</strong>: 1/2, 3/4 (dapat ditulis sebagai pecahan)</li>
+            <li><strong>Irasional</strong>: π, √2 (tak dapat ditulis sebagai pecahan sederhana)</li>
+            <li><strong>Kompleks</strong>: 3 + 2i</li>
+          </ul>
+        </section>
+
+        <section id="tabel" class="card">
+          <h2>Tabel konversi (0–15)</h2>
+          <table>
+            <thead><tr><th>Desimal</th><th>Biner</th><th>Oktal</th><th>Heksadesimal</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+              <tr><td>2</td><td>10</td><td>2</td><td>2</td></tr>
+              <tr><td>3</td><td>11</td><td>3</td><td>3</td></tr>
+              <tr><td>4</td><td>100</td><td>4</td><td>4</td></tr>
+              <tr><td>5</td><td>101</td><td>5</td><td>5</td></tr>
+              <tr><td>6</td><td>110</td><td>6</td><td>6</td></tr>
+              <tr><td>7</td><td>111</td><td>7</td><td>7</td></tr>
+              <tr><td>8</td><td>1000</td><td>10</td><td>8</td></tr>
+              <tr><td>9</td><td>1001</td><td>11</td><td>9</td></tr>
+              <tr><td>10</td><td>1010</td><td>12</td><td>A (10)</td></tr>
+              <tr><td>11</td><td>1011</td><td>13</td><td>B (11)</td></tr>
+              <tr><td>12</td><td>1100</td><td>14</td><td>C (12)</td></tr>
+              <tr><td>13</td><td>1101</td><td>15</td><td>D (13)</td></tr>
+              <tr><td>14</td><td>1110</td><td>16</td><td>E (14)</td></tr>
+              <tr><td>15</td><td>1111</td><td>17</td><td>F (15)</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="kode" class="card">
+          <h2>Snippet: Script Konversi Sederhana</h2>
+          <p class="small">Berikut contoh fungsi kecil (Python & JavaScript) untuk konversi antar-basis.</p>
+          <pre><code># Python: desimal -> biner/hex
+
+def to_base(n, base):
+    if n == 0: return "0"
+    digits = "0123456789ABCDEF"
+    res = ""
+    while n > 0:
+        res = digits[n % base] + res
+        n //= base
+    return res
+
+print(to_base(254,16))  # FE
+</code></pre>
+
+          <pre><code>// JavaScript: desimal -> biner/hex
+function toBase(n, base) {
+  return n.toString(base).toUpperCase();
+}
+console.log(toBase(13,2)); // 1101
+</code></pre>
+        </section>
+
+        <section id="visual" class="card">
+          <h2>Gambar: Garis Bilangan & Venn Bilangan</h2>
+          <p class="small">Dua ilustrasi sederhana (SVG inline):</p>
+
+          <!-- Number line SVG -->
+          <svg class="svg-figure" width="100%" height="120" viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="888" height="108" rx="10" fill="#021124"/>
+            <line x1="40" y1="70" x2="860" y2="70" stroke="#2b6aa3" stroke-width="2"/>
+            <g fill="#cfe8ff" font-size="12">
+              <text x="36" y="88">-4</text>
+              <text x="116" y="88">-2</text>
+              <text x="296" y="88">0</text>
+              <text x="476" y="88">2</text>
+              <text x="656" y="88">4</text>
+            </g>
+            <g>
+              <circle cx="296" cy="70" r="6" fill="#6ee7b7"/>
+              <text x="306" y="66" font-size="12" fill="#cfe8ff">Integer</text>
+            </g>
+          </svg>
+
+          <!-- Venn-like (simple) -->
+          <svg class="svg-figure" width="100%" height="160" viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="888" height="148" rx="10" fill="#021124"/>
+            <g opacity="0.95">
+              <ellipse cx="320" cy="86" rx="180" ry="52" fill="#19456a"/>
+              <ellipse cx="520" cy="86" rx="180" ry="52" fill="#1a5d49"/>
+              <text x="220" y="56" fill="#cfe8ff" font-weight="700">Bilangan Rasional (Q)</text>
+              <text x="520" y="56" fill="#cfe8ff" font-weight="700">Bilangan Real (R)</text>
+              <text x="410" y="98" fill="#e6eef8">Irrasional ∩ Rasional = &empty;</text>
+            </g>
+          </svg>
+
+        </section>
+
+      </main>
+
+      <aside>
+        <section class="card">
+          <h3>Konversi cepat (interactive)</h3>
+          <p class="small">Coba masukkan angka desimal lalu pilih basis target.</p>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input id="dec-in" type="number" placeholder="angka desimal" style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+            <select id="base" style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+              <option value="2">Biner (2)</option>
+              <option value="8">Oktal (8)</option>
+              <option value="10">Desimal (10)</option>
+              <option value="16">Heksadesimal (16)</option>
+            </select>
+          </div>
+          <div style="margin-top:10px"><button onclick="doConvert()" class="btn">Konversi</button></div>
+          <pre id="out" style="margin-top:12px;min-height:50px">Hasil: —</pre>
+        </section>
+
+        <section class="card">
+          <h3>Referensi singkat</h3>
+          <ul class="small">
+            <li><a href="https://id.wikipedia.org/wiki/Sistem_bilangan" target="_blank">Wikipedia (ID) — Sistem bilangan</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Number_system" target="_blank">Wikipedia (EN) — Number system</a></li>
+            <li><a href="https://www.khanacademy.org/math/arithmetic" target="_blank">Khan Academy — Arithmetic</a></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3>Siap di-GitHub</h3>
+          <p class="small">File ini sudah disusun agar siap diunggah ke repositori GitHub. Struktur yang disarankan:</p>
+          <pre><code>repo-sistem-bilangan/
+  ├─ index.html    <-- file ini
+  ├─ images/       <-- jika mau tambahkan gambar PNG/SVG ekstra
+  └─ README.md
+</code></pre>
+          <p class="small">Perintah singkat untuk push:</p>
+          <pre><code>git init
+git add .
+git commit -m "add sistem bilangan"
+git branch -M main
+git remote add origin https://github.com/USERNAME/nama-repo.git
+git push -u origin main
+</code></pre>
+          <p class="small">Untuk GitHub Pages: di Settings → Pages, pilih branch <code>main</code> dan folder <code>/ (root)</code>.</p>
+        </section>
+
+      </aside>
+
+    </div>
+
+    <footer>
+      <p class="small">Catatan: halaman ini dibuat sebagai materi ringkasan. Jika kamu mau, saya bisa juga:
+        <ul>
+          <li>menambahkan file README.md khusus (format GitHub),</li>
+          <li>membuat zip repo untuk diunduh, atau</li>
+          <li>mengubah desain supaya pas untuk slide atau cetak.</li>
+        </ul>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function toBase(n, base){
+      if(isNaN(n)) return '—';
+      if(n === 0) return '0';
+      const digits = '0123456789ABCDEF';
+      let res = '';
+      let x = Math.abs(n);
+      while(x > 0){
+        res = digits[x % base] + res;
+        x = Math.floor(x / base);
+      }
+      return (n<0?'-':'') + res;
+    }
+    function doConvert(){
+      const n = Number(document.getElementById('dec-in').value);
+      const base = Number(document.getElementById('base').value);
+      document.getElementById('out').textContent = 'Hasil: ' + toBase(n, base);
+    }
+  </script>
+</body>
+</html>
