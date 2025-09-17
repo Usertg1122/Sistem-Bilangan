@@ -4,6 +4,23 @@
 
 ---
 
+## 🚀 Demo
+Jika sudah diaktifkan **GitHub Pages**, halaman bisa diakses di:
+```
+https://usertg1122.github.io/sistem-bilangan/
+
+---
+
+## 📂 Struktur Repo
+```
+repo-sistem-bilangan/
+├─ index.html    # Halaman utama (materi + interaktif)
+├─ README.md     # Dokumentasi ini
+└─ images/       # Folder opsional (jika ingin menambah gambar)
+```
+
+---
+
 ## 📖 Isi Materi
 - **Pengantar Sistem Bilangan**
 - **Jenis Bilangan** (Desimal, Biner, Oktal, Heksadesimal, Integer, Rasional, Irasional, Real, Kompleks)
@@ -18,7 +35,7 @@
 ## 🛠️ Cara Menjalankan
 1. Clone atau download repo ini.
    ```bash
-   git clone https://github.com/useryg22/sistem-bilangan.git
+   git clone https://github.com/usertg1122/sistem-bilangan.git
    ```
 2. Buka file `index.html` di browser.
 3. Atau aktifkan **GitHub Pages** lewat menu **Settings → Pages** di repo.
