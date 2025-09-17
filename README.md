@@ -18,7 +18,7 @@
 ## 🛠️ Cara Menjalankan
 1. Clone atau download repo ini.
    ```bash
-   git clone https://github.com/USERNAME/sistem-bilangan.git
+   git clone https://github.com/useryg22/sistem-bilangan.git
    ```
 2. Buka file `index.html` di browser.
 3. Atau aktifkan **GitHub Pages** lewat menu **Settings → Pages** di repo.
