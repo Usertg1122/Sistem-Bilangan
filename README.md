@@ -4,25 +4,6 @@
 
 ---
 
-## 🚀 Demo
-Jika sudah diaktifkan **GitHub Pages**, halaman bisa diakses di:
-```
-https://USERNAME.github.io/sistem-bilangan/
-```
-> Ganti `USERNAME` dengan username GitHub kamu.
-
----
-
-## 📂 Struktur Repo
-```
-repo-sistem-bilangan/
-├─ index.html    # Halaman utama (materi + interaktif)
-├─ README.md     # Dokumentasi ini
-└─ images/       # Folder opsional (jika ingin menambah gambar)
-```
-
----
-
 ## 📖 Isi Materi
 - **Pengantar Sistem Bilangan**
 - **Jenis Bilangan** (Desimal, Biner, Oktal, Heksadesimal, Integer, Rasional, Irasional, Real, Kompleks)
